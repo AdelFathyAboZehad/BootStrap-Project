@@ -21,6 +21,7 @@ import { BorderWithShadowDirective } from './Directives/border-with-shadow.direc
 import { MainComponent } from './Components/main/main.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +40,7 @@ import { MainComponent } from './Components/main/main.component';
     CardNumberPipe,
     BorderWithShadowDirective,
     MainComponent,
+
 
   ],
   imports: [
