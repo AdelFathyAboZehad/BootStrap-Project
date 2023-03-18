@@ -1,3 +1,4 @@
+import { TestComponent } from './test/test.component';
 import { MainComponent } from './Components/main/main.component';
 import { AboutUsComponent } from './Components/about-us/about-us.component';
 import { ContactUsComponent } from './Components/contact-us/contact-us.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path:'',component:MainComponent,children:[
     {path:'',redirectTo:"/Home",pathMatch:"full",title:'Home page'},
     {path:'Home',component:HomeComponent,title:'Home page'},
+    {path:'Test',component:TestComponent,title:'Test page'},
     {path:'Aboutus',component:AboutUsComponent,title:'Aboutus page'},
     {path:'Contactus',component:ContactUsComponent,title:'Contactus page'},
     {path:'order',component:OrderComponent,title:'Order page'},
