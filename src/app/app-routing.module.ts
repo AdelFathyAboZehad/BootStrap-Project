@@ -24,6 +24,7 @@ import { RouterModule, Routes } from '@angular/router';
 // ];
 const routes: Routes = [
   {path:'',component:MainComponent,children:[
+    {path:'',redirectTo:"/Home",pathMatch:"full",title:'Home page'},
     {path:'Home',component:HomeComponent,title:'Home page'},
     {path:'Aboutus',component:AboutUsComponent,title:'Aboutus page'},
     {path:'Contactus',component:ContactUsComponent,title:'Contactus page'},
