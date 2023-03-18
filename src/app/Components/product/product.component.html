@@ -1,0 +1,52 @@
+
+<!-- <h1>{{discount}}</h1> -->
+ <!--<div>
+  <img src="{{product.Img}}" class="img-fluid" >
+  <h1>{{product.Name}}</h1>
+</div> -->
+<!-- Day2 -->
+<div>
+  <h1>pagr product</h1>
+  <img [src]="stores.Logo" *ngIf="toggleImg" width="150px" height="150px">
+  <span *ngIf="toggleSpan">Thanks for purchasing from our Store {{ClientName}}</span>
+  <br>
+  <button class="btn btn-success" (click)="toggleImgLogo()">Toggle</button>
+</div>
+<table class="table m-2">
+  <thead>
+    <tr class="bg-success text-light">
+      <th scope="col">Name</th>
+      <th scope="col">Image</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Price</th>
+      <th scope="col">Count</th>
+      <th scope="col">Details</th>
+      <th scope="col">Buy</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let prod of productListOfCats ">
+      <tr *ngIf="prod.Quantity>0" [ngClass]="{'bg-danger':prod.Quantity==1,'bg-weight':prod.Quantity!=1}" >
+        <td >{{prod.Name|uppercase}}</td>
+        <td ><img [src]="prod.Img" width="100px" height="70px" appBorderWithShadow ></td>
+        <td >{{prod.Quantity}}</td>
+        <td >{{prod.Price|currency}}</td>
+        <td ><input type="number" name="count" id="count"  class="form-control" #itemcount required min="1" appBorderWithShadow="Silver"></td>
+        <!-- <td><button class="btn btn-danger" >Buy</button></td> -->
+        <td><button class="btn btn-info" (click)="productDetails(prod.ID)">Details</button></td>
+        <td><button class="btn btn-danger"  (click)="GetAllShopping(prod.Name,prod.Price,itemcount.value);prod.Quantity=prod.Quantity-+(itemcount.value)" *ngIf="prod.Quantity>+(itemcount.value)" >Buy</button></td>
+
+      </tr>
+    </ng-container>
+
+  </tbody>
+</table>
+<!-- [(ngModel)]="prod.Quantity" -->
+<!-- prod.Quantity=prod.Quantity-1 -->
+
+
+
+
+
+

@@ -1,0 +1,42 @@
+<div >
+<label for="cat" class="bg-dark text-light col-sm-3 text-center" style="width: 20%;">Select Category</label>
+<select name="cat" id="cat" class="form-control bg-info col-sm-3 text-center " style="width: 20%;" [(ngModel)]="selectedCatID">
+  <option value="0">All</option>
+  <option *ngFor="let cat of catList" [value]="cat.ID">{{cat.Name}}</option>
+
+</select>
+</div>
+
+<app-product [receivedCatID]="selectedCatID" (allShoppingCat)="AllShopping($event)"></app-product>
+
+<table class="table m-2" *ngIf="disable">
+  <thead>
+    <tr class="bg-success text-light">
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Count</th>
+      <th scope="col">TotalPrice</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let prod of AllshoppingCat ">
+      <tr>
+        <td >{{prod.Name}}</td>
+        <td >{{prod.Price}}</td>
+        <td >{{prod.Count}}</td>
+        <td >{{prod.TotalPrice}}</td>
+        <td> <button class="btn btn-danger" (click)="deleteObject(prod.Name)">Delete</button></td>
+      </tr>
+    </ng-container>
+
+  </tbody>
+</table>
+
+  <div class="text-center">
+    <button class="btn btn-primary" (click)="GetTotalPrice()">CheckOut</button>
+    <h2 *ngIf="showTotalPrice" class="text-center bg-info p-4">the Total Price In Cart :{{totalpriceInCart}}</h2>
+  </div>
+
+
+
